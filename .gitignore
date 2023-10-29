@@ -6,3 +6,4 @@ build
 .whl
 .egg
 .egg-info
+.lock
