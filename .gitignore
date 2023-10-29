@@ -5,3 +5,4 @@ build
 .venv
 .whl
 .egg
+.egg-info
