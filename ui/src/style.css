@@ -1,0 +1,147 @@
+h1, p {
+    font-family: Lato;
+  }
+  
+  .chatSection {
+    margin: auto;
+    width: 80%;
+    height: 80vh;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 20px;
+  }
+
+  .chatSection {
+    margin: auto;
+    width: 80%;
+    height: 80vh;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 20px;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .chatSection:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .heading {
+    font-size: 30px;
+    font-family: 'Montserrat';
+    text-align: center;
+    margin: 30px;
+  }
+
+  .larry-avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  .botContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .messagesSection {
+    height: 90%;
+  }
+
+  .configSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 7px;
+    font-family: Lato;
+  }
+  
+  .messageInputField {
+    margin-left: 10px;
+    font-size: 18px;
+    outline:none;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    width: 90%;
+  }
+
+  
+  
+  .inputSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 6px;
+  }
+  
+  .messagesSection {
+    min-height: 70vh;
+    max-height: 70vh;
+    margin-top: 20px;
+    overflow-y: auto;
+  }
+  
+  /* Message component styles here 👇 */
+  .botCard {
+    width: 80%;
+    border-bottom-right-radius: 30px 30px;
+    border-top-right-radius: 30px 30px;
+    border-bottom-left-radius: 30px 30px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(35,37,38,1) 0%, rgba(65,67,69,1) 100%);
+    margin-left: 5px;
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .userCard {
+    width: 80%;
+    border-bottom-right-radius: 30px 30px;
+    border-top-left-radius: 30px 30px;
+    border-bottom-left-radius: 30px 30px;
+    float: right;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(92,37,141,1) 0%, rgba(67,137,162,1) 100%);
+    margin-right: 5px;
+    margin-bottom: 10px;
+    color: white;
+  }
+  
+  .messagesSection::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .messagesSection {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .messagesContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .configContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media only screen and (min-width: 992px) {
+    .inputSection {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 21px;
+    }
+  
+    .userCard {
+      width: 50%;
+    }
+  
+    .botCard {
+      width: 50%;
+    }
+  }

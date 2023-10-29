@@ -1,5 +1,5 @@
-rebuild:
-	cd ui && yarn install && yarn build && cd .. && docker build -t larry .
+react:
+	cd ui && yarn install && yarn build
 
 python:
 	rm -rf src/larry/www && \

@@ -5,7 +5,9 @@ import larry
 PACKAGE_REQUIREMENTS = [
     "fastapi>=0.95.0,<1.0.0",
     "uvicorn[standard]==0.21.1",
-    "jinja2"
+    "jinja2",
+    "click",
+    "openai"
 ]
 
 current_dir = Path(__file__).parent.parent
