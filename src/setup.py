@@ -7,7 +7,7 @@ PACKAGE_REQUIREMENTS = [
     "uvicorn[standard]==0.21.1",
     "jinja2",
     "click",
-    "openai"
+    "openai==0.28.1"
 ]
 
 current_dir = Path(__file__).parent.parent

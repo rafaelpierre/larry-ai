@@ -1,0 +1,37 @@
+name: 'CI'
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'src/larry/**'
+      - 'src/tests/**'
+      - '.github/workflows/ci.yml'
+
+jobs:
+  test:
+    name: 'Continuous Integration'
+    runs-on: ubuntu-latest
+    env: 
+      CI_COMMIT_MESSAGE: Update coverage
+      CI_COMMIT_AUTHOR: github-actions[bot]
+      CI_COMMIT_EMAIL: github-actions[bot]@users.noreply.github.com
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install Tox
+        run: pip install tox
+      - name: Lint with Ruff
+        run: tox -e lint
+      - name: Unit Testing
+        id: tox
+        working-directory: src
+        run: tox
+      

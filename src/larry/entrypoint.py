@@ -1,8 +1,9 @@
 import subprocess
 import logging
 import click
+from typing import List
 
-def run(command):
+def run(command: List[str]):
     process = subprocess.Popen(
         command, 
         stdout=subprocess.PIPE,

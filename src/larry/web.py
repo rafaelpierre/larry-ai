@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Response
+from fastapi import FastAPI, Response, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.requests import Request
@@ -56,12 +56,6 @@ async def generate(
         response = JSONResponse(content=payload)
         return response
     except Exception as e:
-        payload = jsonable_encoder(
-            {
-                "answer": str(e),
-                "chat_history_ids": ""
-            })
-        
-        response = JSONResponse(content=payload)
-        return response
+        logging.error(str(e))
+        raise HTTPException(status_code=400, detail=f"Error: {str(e)}")
 
