@@ -4,7 +4,7 @@
 
 <hr />
 
-<p align="center"><img src="https://freeimage.host/i/JC5JEa2" /></p>
+<p align="center"><img src="https://github.com/rafaelpierre/larry/blob/main/img/larry.png?raw=true" /></p>
 
 ## Getting Started
 ### Installation
@@ -28,5 +28,5 @@ INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
 
 ### Screenshots
 
-<p align="center"><img src="https://freeimage.host/i/JC5duKx" /></p>
+<p align="center"><img src="https://github.com/rafaelpierre/larry/blob/main/img/screenshot.png?raw=true" /></p>
 
