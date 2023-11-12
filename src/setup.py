@@ -10,7 +10,7 @@ PACKAGE_REQUIREMENTS = [
     "openai==0.28.1"
 ]
 
-current_dir = Path(__file__).parent
+current_dir = Path(__file__).parent.parent
 long_description = (current_dir / "README.md").read_text()
 
 setup(
