@@ -4,7 +4,7 @@
 
 <hr />
 
-<p align="center"><img src="https://github.com/rafaelpierre/larry/blob/main/img/larry.png?raw=true" /></p>
+<p align="center"><img src="https://github.com/rafaelpierre/larry/blob/main/img/larry.png?raw=true" style="size: 50%"/></p>
 
 ## Getting Started
 ### Installation
