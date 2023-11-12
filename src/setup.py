@@ -13,7 +13,7 @@ PACKAGE_REQUIREMENTS = [
 current_dir = Path(__file__).parent.parent
 
 setup(
-    name="larry",
+    name="larry-ai",
     packages=find_packages(),
     include_package_data=True,
     setup_requires=["setuptools", "wheel"],
