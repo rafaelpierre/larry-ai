@@ -11,7 +11,21 @@ on:
       - '.github/workflows/ci.yml'
 
 jobs:
-  test:
+  build_npm:
+    runs-on: ubunt-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 20.8.0
+    - run: npm install --global yarn
+      name: Install Yarn
+    - run: yarn install
+      workdir: ui
+    - run: yarn build
+      workdir: ui
+  test_python:
     name: 'Continuous Integration'
     runs-on: ubuntu-latest
     env: 
