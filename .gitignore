@@ -225,3 +225,4 @@ chrome-user-data
 
 *.lock
 .ruff_cache
+www/
