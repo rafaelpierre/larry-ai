@@ -26,6 +26,7 @@ jobs:
     - run: yarn build
       working-directory: ui
   test_python:
+    needs: build_npm
     name: 'Continuous Integration'
     runs-on: ubuntu-latest
     env: 
