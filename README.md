@@ -1,6 +1,6 @@
 # 🐦 larry.ai: A Batteries Included ChatGPT Frontend Framework & HTTP Proxy
 
-![version](https://img.shields.io/badge/version-0.0.1-red?style=for-the-badge) ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![python](https://img.shields.io/badge/python-3.11-blue?style=for-the-badge) ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi) ![ruff](https://img.shields.io/badge/lint-ruff-gold?style=for-the-badge) ![coverage](https://img.shields.io/badge/coverage-92%25-green?style=for-the-badge)
+![version](https://img.shields.io/badge/version-0.0.1-red?style=for-the-badge) ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![python](https://img.shields.io/badge/python-3.11-blue?style=for-the-badge) ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi) ![ruff](https://img.shields.io/badge/lint-ruff-gold?style=for-the-badge) ![build](https://img.shields.io/badge/build-passing-green?style=for-the-badge) ![coverage](https://img.shields.io/badge/coverage-92%25-green?style=for-the-badge)
 
 <hr />
 
