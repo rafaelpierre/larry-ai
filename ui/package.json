@@ -8,7 +8,7 @@
     },
     "scripts": {
       "start": "PORT=8080 react-scripts start",
-      "build": "react-scripts build && rm -rf ../larry/www && cp -r build ../src/larry && mv ../src/larry/build ../src/larry/www",
+      "build": "react-scripts build && rm -rf ../src/larry/www && cp -r build ../src/larry && mv ../src/larry/build ../src/larry/www",
       "test": "react-scripts test --env=jsdom",
       "eject": "react-scripts eject"
     },
