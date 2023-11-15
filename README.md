@@ -13,13 +13,6 @@
    * *Ease of use*: just install it, configure your Open AI token, and *voila* - you have a sleak chatbot frontend
    * *Flexibility*: want to use **larry.ai** as a simple (internal) proxy and communicate with it via your own frontend? You're welcome to do so via the exposed REST API endpoints.
 
-### 🛣️ Roadmap
-
-We also have some exciting features in the roadmap, namely:
-* Ability to easily change color themes
-* Prompt Injection protection
-* Caching GPT API calls
-
 ## 🐣 Getting Started
 ### Installation
 ```bash
@@ -50,6 +43,16 @@ INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
 ## 📷 Screenshots
 
 <p align="center"><img src="https://github.com/rafaelpierre/larry/blob/main/img/screenshot.png?raw=true" /></p>
+
+### 🛣️ Roadmap
+
+We also have some exciting features in the roadmap, namely:
+* Ability to easily change color themes
+* Prompt Injection protection
+* Caching GPT API calls
+* Rate limiting
+* Authentication & Authorization
+* API Key Management
 
 ### 🤝 Contributing
 
