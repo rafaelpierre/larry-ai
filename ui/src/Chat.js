@@ -1,5 +1,4 @@
 import React, { useState, setState } from "react";
-import axios from "axios";
 
 import "./style.css";
 import "./pretty-checkbox.min.css";
@@ -12,27 +11,37 @@ const Chat = props => {
   const [currentMessage, setCurrentMessage] = useState("");
 
 
-  const handleMessageSubmit = message => {
-    const data = {
-        question: message,
-        chat_history_ids: (chatHistoryIds.length > 0 ? [chatHistoryIds] : [])
-    };
-    console.log("data: " + data);
+  const handleMessageSubmit = async (message) => {
+    try {
+      const options = {
+        method: 'POST',
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json;charset=UTF-8",
+        },
+        body: JSON.stringify({
+            question: message,
+            chat_history_ids: (chatHistoryIds.length > 0 ? [chatHistoryIds] : [])
+        })
+      };
 
-    axios
-      .post('/generate', data)
-      .then(response => {
-        const responseData = {
-          text: response.data["answer"],
-          isBot: true
-        };
-        setResponses(responses => [...responses, responseData]);
-        setChatHistoryIds(chatHistoryIds => response.data["chat_history_ids"]);
-        console.log("response: " + response);
-      })
-      .catch(error => {
-        console.log("Error: ", error);
-      });
+      const response = await fetch("http://localhost:8000/generate", options);
+
+      if (!response.ok) {
+        throw new Error('Error getting response from backend');
+      }
+
+      const data = await response.json();
+      console.log(data)
+      const responseData = {
+        text: data["answer"],
+        isBot: true,
+        chat_history_ids: []
+      }
+      setResponses(responses => [...responses, responseData]);
+    } catch(error) {
+      console.error('Error: ' + error);
+    }
   };
 
   const handleMessageChange = event => {

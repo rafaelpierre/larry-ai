@@ -4,14 +4,21 @@ from fastapi.templating import Jinja2Templates
 from fastapi.requests import Request
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
+from fastapi.middleware.cors import CORSMiddleware
 import logging
 from os.path import abspath, join, dirname
 import openai
 import os
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
-
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 TEMPLATE_ROOT = abspath(join(dirname(__file__), 'www'))
 STATIC_ROOT = abspath(join(dirname(__file__), 'www/static'))
@@ -19,6 +26,7 @@ STATIC_ROOT = abspath(join(dirname(__file__), 'www/static'))
 templates = Jinja2Templates(directory=TEMPLATE_ROOT)
 app.mount('/static', StaticFiles(directory=STATIC_ROOT), 'static')
 
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 @app.get("/{rest_of_path:path}")
 async def react_app(req: Request, rest_of_path: str):

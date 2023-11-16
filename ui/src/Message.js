@@ -1,10 +1,10 @@
 import React from "react";
 
-const Message = ({ message }) => {
+const Message = ({ message, idx }) => {
   return (
     <div className="messageCard">
       {message.isBot ? (
-        <div className="botCard">
+        <div className="botCard" key={idx}>
           <p
             style={{
               paddingLeft: "16px",
@@ -19,7 +19,7 @@ const Message = ({ message }) => {
           </p>
         </div>
       ) : (
-        <div className="userCard">
+        <div className="userCard" key={idx}>
           <p
             style={{
               paddingLeft: "16px",
