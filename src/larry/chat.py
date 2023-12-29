@@ -11,9 +11,9 @@ from os.path import abspath, join, dirname
 
 class Chat:
 
-    def __init__(self, fn):
+    def __init__(self, runnable):
 
-        self.fn = fn
+        self.runnable = runnable
         self._template_root = abspath(join(dirname(__file__), 'www'))
         self._static_root = abspath(join(dirname(__file__), 'www/static'))
         self._templates = Jinja2Templates(directory=self._template_root)
@@ -52,7 +52,7 @@ class Chat:
         try:
             logging.info(f"Question: {message['question']}")
             question = message["question"]
-            response = self.fn(question)["text"]
+            response = self.runnable(question)["text"]
             logging.info(f"Answer: {response}")
 
             payload = jsonable_encoder(
