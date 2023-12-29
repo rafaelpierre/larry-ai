@@ -1,4 +1,3 @@
-from larry.entrypoint import run
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -9,6 +8,7 @@ import logging
 import uvicorn
 from os.path import abspath, join, dirname
 import asyncio
+from langchain.chains import LLMChain
 
 class Chat:
 
@@ -53,7 +53,16 @@ class Chat:
         try:
             logging.info(f"Question: {message['question']}")
             question = message["question"]
-            response = self.runnable(question)["text"]
+            response = self.runnable(question)
+
+            if (("return" in self.runnable.__annotations__) and
+                (isinstance(
+                    self.runnable.__annotations__["return"],
+                    LLMChain
+                ))):
+                
+                response = response["text"]
+            
             logging.info(f"Answer: {response}")
 
             payload = jsonable_encoder(
@@ -88,4 +97,4 @@ class Chat:
             
         else:
             print('Starting new event loop')
-            result = asyncio.run(uvicorn.run(self.app))
+            asyncio.run(uvicorn.run(self.app))
