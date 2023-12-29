@@ -7,17 +7,40 @@ from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 import logging
 import uvicorn
+from os.path import abspath, join, dirname
 
 class Chat:
 
     def __init__(self, fn):
 
         self.fn = fn
+        self._template_root = abspath(join(dirname(__file__), 'www'))
+        self._static_root = abspath(join(dirname(__file__), 'www/static'))
+        self._templates = Jinja2Templates(directory=self._template_root)
+
         self.app = FastAPI()
+        self.app.mount('/static', StaticFiles(directory=self._static_root), 'static')
+
         self.app.add_api_route(
             path = "/generate",
             endpoint = self.generate,
             methods = ["post"]
+        )
+
+        self.app.add_api_route(
+            path = "/{rest_of_path:path}",
+            endpoint = self.react_app,
+            methods = ["get"]
+        )
+
+    async def react_app(self, req: Request, rest_of_path: str):
+
+        logging.info(f'Rest of path: {rest_of_path}')
+        return self._templates.TemplateResponse(
+            'index.html',
+            {
+                'request': req
+            }
         )
 
     async def generate(
@@ -29,7 +52,7 @@ class Chat:
         try:
             logging.info(f"Question: {message['question']}")
             question = message["question"]
-            response = self.fn(question)
+            response = self.fn(question)["text"]
             logging.info(f"Answer: {response}")
 
             payload = jsonable_encoder(
