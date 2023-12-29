@@ -21,5 +21,5 @@ def test_langchain():
     llm = OpenAI(temperature=0)
     llm_chain = LLMChain(llm=llm, prompt=PromptTemplate.from_template(prompt_template))
     
-    chat = Chat(fn = llm_chain)
+    chat = Chat(runnable = llm_chain)
     chat.launch()

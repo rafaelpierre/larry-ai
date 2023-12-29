@@ -1,4 +1,4 @@
-from src.larry.entrypoint import run
+from larry.entrypoint import run
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -8,6 +8,7 @@ from fastapi.encoders import jsonable_encoder
 import logging
 import uvicorn
 from os.path import abspath, join, dirname
+import asyncio
 
 class Chat:
 
@@ -75,4 +76,16 @@ class Chat:
 
     def launch(self):
 
-        uvicorn.run(app = self)
+        try:
+            loop = asyncio.get_running_loop()
+        except RuntimeError:
+            loop = None
+
+        if loop and loop.is_running():
+            config = uvicorn.Config(self.app)
+            server = uvicorn.Server(config)
+            loop.create_task(server.serve())
+            
+        else:
+            print('Starting new event loop')
+            result = asyncio.run(uvicorn.run(self.app))
