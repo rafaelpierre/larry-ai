@@ -6,15 +6,16 @@ from fastapi.requests import Request
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 import logging
+import uvicorn
 
 class Chat:
 
     def __init__(self, fn):
 
         self.fn = fn
-        self.app = app = FastAPI()
-        app.add_api_route(
-            path = "generate",
+        self.app = FastAPI()
+        self.app.add_api_route(
+            path = "/generate",
             endpoint = self.generate,
             methods = ["post"]
         )
@@ -45,7 +46,10 @@ class Chat:
             logging.error(str(e))
             raise HTTPException(status_code=400, detail=f"Error: {str(e)}")
 
+    async def __call__(self, scope, receive, send):
+            
+        await self.app(scope, receive, send)
 
     def launch(self):
 
-        run(["uvicorn", "larry.web:app", "--host", host, "--port", port])
+        uvicorn.run(app = self)
