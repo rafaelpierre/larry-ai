@@ -6,10 +6,10 @@ const Messages = ({ messages }) => {
   
   return (
     <div className="messagesSection">
-      {messages.map(message => {
+      {messages.map((message, idx) => {
         return (
-          <div className="messagesContainer">
-            <Message message={message} />
+          <div className="messagesContainer" key={idx}>
+            <Message message={message} idx={idx}/>
           </div>
         );
       })}
