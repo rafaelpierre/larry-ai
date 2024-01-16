@@ -9,7 +9,6 @@ www
 
 # Distribution / packaging
 .Python
-build/
 develop-eggs/
 dist/
 downloads/
@@ -189,15 +188,6 @@ Security
 Insights
 react/.gitignore
 
-Brian Vaughn Renamed packages/react-devtools-scheduling-profiler to packages/react…
-…
-Latest commit 1bf6deb on Nov 4, 2021
- History
- 19 contributors
-@subtleGradient@acdlite@bvaughn@zpao@gaearon@DarkScorpion@yungsters@aickin@trueadm@elas7@kartikcho@jdalton
-38 lines (37 sloc)  881 Bytes
- 
-
 .DS_STORE
 node_modules
 scripts/flow/*/.flowconfig
@@ -207,7 +197,7 @@ scripts/flow/*/.flowconfig
 .grunt
 _SpecRunner.html
 __benchmarks__
-build/
+src/build/
 remote-repo/
 coverage/
 .module-cache
